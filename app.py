@@ -1,8 +1,7 @@
 import streamlit as st
 from login import login
-from dashboard.main import run_dashboard
+from dashboard.main import run_dashboard  # This import works only if folder structure is correct
 
-# Set page config
 st.set_page_config(page_title="Solar Energy Tracker", layout="centered")
 
 # Initialize session state
@@ -13,7 +12,6 @@ if 'logged_in' not in st.session_state:
 if not st.session_state.logged_in:
     login()
 else:
-    # Sidebar navigation
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", ["📊 Dashboard"])
 
